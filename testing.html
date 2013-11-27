@@ -4,9 +4,50 @@
     <title>Player VS Player</title>
 </head>
 <body>
+<div>
+<div id="x">X:</div>
+<div id="resultatX">0</div>
+<div id="y">O:</div>
+<div id="rezultatY" >0</div>
+
+
+</div>
 <h1 id="pvpZaglavie">Player vs Player</h1>
+   <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <style>
+#y
+{
+  color : lightblue;
+  font-size : 50px;
+  font:right;
+  float:left;
+  margin-left:50px;
+}
+#x
+{
+  color : lightblue;
+  font-size : 50px;
+  font : right;
+  float:left;
+  margin-left:50px;
+}
+#resultatX
+{
+   color : lightblue;
+   font-size : 50px;
+   font:right;
+   float:left;
+   margin-left:10px;
+}
+#rezultatY
+{
+   color : lightblue;
+   font-size : 50px;
+   font:right;
+   float:left;
+   margin-left:10px;
+}
     html
     {
         background-color: black;
@@ -54,6 +95,8 @@
     <input type="button" id="ff" value="Reset">
 	</div>
     <script type='text/javascript'>
+	 var xRezultat =0 ;
+	 var yRezultat = 0;
         $(window).load(function(){
             $(document).ready($('input.tictactoe').click(tictactoe));
             $(document).ready($('#ff').click(reset));
@@ -85,7 +128,19 @@
                 }
 
                 if(gameOver && whoWon != '' && whoWon != 'draw') {
-                    alert(whoWon + ' won!')
+                    if(whoWon == 'X') 
+					{
+					xRezultat++;
+					$("#resultatX").html(xRezultat);
+					
+					}
+					 if(whoWon == 'O') 
+					{
+					yRezultat++;
+					$("#rezultatY").html(yRezultat);
+					}
+					alert(whoWon + ' won!')
+					
                 }
 
                 if(!gameOver && whoWon == 'draw') {
